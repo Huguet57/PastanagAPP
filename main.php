@@ -1,4 +1,4 @@
-<?php
+<?php	
 	require './credentials.php';
 	require './php/utils.php';
 
@@ -11,7 +11,7 @@
 			// Unset variables
 			setcookie('user', '', -1, "/");
 			setcookie('password', '', -1, "/");
-
+			
 			header("Location: ./index.php?passwordchanged=1");
 			die();
 		}
@@ -41,13 +41,14 @@
 
 		<script>
 			let user = {
-				'id': <?=(int)$user->id?>,
-				'quimata': <?=(int)$user->quimata?>,
-				'requested': <?=(int)$user->requested?>,
-				'mort': <?=(int)$user->mort?>,
-				'nom': "<?=sanitize_html($user->nomcomplet)?>",
-				'curs': <?=(int)$user->curs?>,
-				'grau': <?=(int)$user->grau?>
+				'id': <?=$user->id?>,
+				'quimata': <?=$user->quimata?>,
+				'requested': <?=$user->requested?>,
+				'mort': <?=$user->mort?>,
+
+				'nom': "<?=$user->nomcomplet?>",
+				'curs': <?=$user->curs?>,
+				'grau': <?=$user->grau?>
 			};
 		</script>
 
@@ -55,12 +56,12 @@
 	<body>
 		<div id="outter-container">
 			<div id="inner-container">
-				<h2>Hola <name id="user_name"><?=sanitize_html($user->nom())?></name>,</h2>
+				<h2>Hola <name id="user_name"><?=$user->nom()?></name>,</h2>
 
 				<div class="formulari_contrasenya" style="display: none;">
 					<p>Sembla que no tens clau d'accés, la gent podrà entrar a la teva compta...</p>
 					<form action="./php/change_password.php" method="POST">
-						<input type="hidden" value="<?=(int)$_COOKIE['user']?>" name="userid">
+						<input type="hidden" value="<?=$_COOKIE['user']?>" name="userid">
 						<input type="password" placeholder="Nova clau d'accés..." name="password" /><br />
 						<input type="password" placeholder="Repeteix la clau d'accés" name="confirmation"/><br />
 						<input type="submit">
@@ -69,25 +70,26 @@
 
 				<p>La teva víctima és:</p>
 
-        <div class="victima">
-          <table id="victim_info">
-            <tr>
-              <td><img id="victim_img" src="https://picsum.photos/id/<?=(int)$victim->id?>/200/200" /></td>
-              <td>
-                <div id="victim_name"><?=sanitize_html($victim->nomcomplet)?></div>
-                <div id="victim_curs_i_grau">
-                  <span id="victim_curs"><?=(int)$victim->curs?></span>
-                  -
-                  <span id="victim_grau"><?=(int)$victim->grau?></span>
-                </div>
-                <div id="butons" class="options">
-                  <button id="win" onclick="js: send_request(user, 'REQ KILL');">L'he matat</button>
-                </div>
-              </td>
-            </tr>
-          </table>
+				<div class="victima">
+					<table>
+						<tr>
+							<td><img id="victim_img" src="https://picsum.photos/id/<?=$victim->id?>/200/200" /></td>
+							<td>
+								<div id="victim_name"><?=$victim->nomcomplet?></div>
+								<div id="victim_curs_i_grau">
+									<span id="victim_curs"><?=$victim->curs?></span>
+									-
+									<span id="victim_grau"><?=$victim->grau?></span>
+								</div>
+								<div id="butons" class="options">
+									<button id="win" onclick="js: send_request(user, 'REQ KILL');">L'he matat</button>
+								</div>
+							</td>
+						</tr>
+					</table>
 				</div>
-    
+
+				<div style="clear: both;"></div>
 			</div>
 		</div>
 
@@ -96,11 +98,11 @@
 				// Set interval of checking
 				let checking = setInterval(function() { update_info(user); }, 1500);
 				// Set to hidden or not the password prompt
-				if (<?=$user->md5password == "" ? 1 : 0?>) {
+				if (<?=$user->md5password=="" ? 1 : 0?>) {
 					$.notify("No tens clau d'accés", "info");
 					$(".formulari_contrasenya").show();
 				}
-
+				
 				// Notify of messages
 				if (getUrlParameter("wrongconfirmation")) read_message("Les contrasenyes no coincideixen", "error");
 				if (getUrlParameter("errordb")) read_message("Hi ha hagut un problema a la base de dades, torna-ho a intentar", "error");

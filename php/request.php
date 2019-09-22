@@ -5,7 +5,7 @@
 	// Do the query
 	$queries = [""];
 	$victimid = "ANY (SELECT quimata FROM (SELECT * FROM users) AS victims WHERE id=".(int)$_POST['user_id'].")";
-
+	
 	if ($_POST['msg'] == "REQ KILL") $queries = ["UPDATE users SET requested=1 WHERE id=".$victimid]; 						// request kill
 	if ($_POST['msg'] == "REQ DEAD") $queries = ["UPDATE users SET requested=2 WHERE quimata=".(int)$_POST['user_id']]; 	// request dead
 	if ($_POST['msg'] == "DENY REQ") $queries = ["UPDATE users SET requested=0 WHERE id=".(int)$_POST['user_id']]; 			// deny request
