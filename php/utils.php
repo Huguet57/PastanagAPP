@@ -20,7 +20,7 @@
 		$conn->set_charset("utf8");
 
 		// Execute query and save result
-		if (!$result = $conn->query($query)) echo $conn->error;
+		$result = $conn->query($query);
 
 		// Close the connection
 		$conn->close();
@@ -41,13 +41,13 @@
 			while ($row = $result->fetch_row()) {
 				$user = new User();
 
-				$user->id = $row[0];
+				$user->id = (int)$row[0];
 				$user->nomcomplet = $row[1];
-				$user->curs = $row[2];
-				$user->grau = $row[3];
-				$user->quimata = $row[4];
-				$user->requested = $row[5];
-				$user->mort = $row[6];
+				$user->curs = (int)$row[2];
+				$user->grau = (int)$row[3];
+				$user->quimata = (int)$row[4];
+				$user->requested = (int)$row[5];
+				$user->mort = (int)$row[6];
 				$user->md5password = $row[7];
 
 				array_push($users, $user);
@@ -59,5 +59,9 @@
 
 		if ($id > 0) return $users[0];
 		else return $users;
+	}
+
+	function sanitize_html($html) {
+		return htmlspecialchars($html);
 	}
 ?>

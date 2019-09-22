@@ -51,11 +51,10 @@
 
 		<script src="./js/autocomplete.js"></script>
 		<script>
-			fetch("./ajax/getusers.php").then(result => result.json()).then(users => {
-				console.log(users);
-				autocomplete(document.getElementById("search-input"), users, "search");
+			$.post("./ajax/getusers.php", function(data, status){
+				$("#list").html(data);
 
-				userid = <?=isset($_COOKIE['user']) ? $_COOKIE['user'] : -1 ?>;
+				userid = <?=isset($_COOKIE['user']) ? (int)$_COOKIE['user'] : -1 ?>;
 				username = $('option[value=' + userid + ']').text();
 
 				if (userid > 0) {
@@ -65,7 +64,7 @@
 			}).catch(error => {
 				console.error(error);
 			});
-
+      
 			$(document).ready(function() {
 				// Notify of messages
 				if (getUrlParameter("passwordchanged")) read_message("La teva clau d'accés ha canviat", "error");
