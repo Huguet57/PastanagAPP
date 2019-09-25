@@ -22,5 +22,5 @@
 		if (!query($template)) die("An error ocurred." . $template);
 	}
 	
-	die("<script>window.location.href = './index.php?successinserting'</script>");
+	die("<script>window.location.href = './?successinserting'</script>");
 ?>

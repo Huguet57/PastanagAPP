@@ -26,5 +26,5 @@
 	)"];
 	
 	foreach ($queries as $query) if (!query($query)) die('An error ocurred. ' . $query);
-	die("<script>window.location.href = './index.php?dbname=$dbname'</script>");
+	die("<script>window.location.href = './?dbname=$dbname'</script>");
 ?>

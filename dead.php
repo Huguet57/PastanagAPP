@@ -1,4 +1,6 @@
-<?php	
+<?php
+	date_default_timezone_set("Europe/Berlin");
+
 	// Forget cookies
 	setcookie('user', '', -1, "/");
 	setcookie('password', '', -1, "/");
@@ -24,7 +26,7 @@
 			<div id="inner-container">
 				<h1>Estàs mort/a!</h1>
 				<p>Torna a la pàgina principal.</p>
-				<a href="./index.php">Go back</a>
+				<a href="./">Go back</a>
 				<a href="./ranking.php">Anar al rànquing</a>
 			</div>
 		</div>

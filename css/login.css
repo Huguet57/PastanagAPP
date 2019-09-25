@@ -1,3 +1,16 @@
+header h2 {
+	line-height: 50%;
+}
+
+header h3 {
+	font-size: 14px;
+	color: rgb(20,20,20);
+}
+
+header {
+	margin-bottom: 20px;
+}
+
 #password {
 	font-size: 14px;
 	line-height: 1.75em;

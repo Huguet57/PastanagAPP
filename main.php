@@ -6,24 +6,21 @@
 	$usersdb = $credentials->usersdb;
 	$mortsdb = $credentials->mortsdb;
 	
-	$user = (int)$_POST['user'];
-	$password = isset($_POST['password']) ? md5($_POST['password']) : '';
+	date_default_timezone_set("Europe/Berlin");
+	
+	$user = $_COOKIE['user']; // (int)$_POST['user'];
+	$password = $_COOKIE['password']; // isset($_POST['password']) ? md5($_POST['password']) : '';
 
-		// Check if password is correct
-		$query_password = "SELECT password FROM $usersdb WHERE id=$user";
-		$real_password = query($query_password)->fetch_row()[0];
-		if ($real_password != $password) die("<script>window.location.href = './index.php?wrongpassword=1'</script>");
-
-	if (!isset($_POST['user']) or $_POST['user'] == '') {
-		die("<script>window.location.href = './index.php'</script>");
-	} else if (isset($_POST['password'])) {
+	if (!isset($_COOKIE['user']) or $_COOKIE['user'] == '') {
+		die("<script>window.location.href = './'</script>");
+	} else if (isset($_COOKIE['password'])) {
 		$query_password = "SELECT password FROM $usersdb WHERE id=$user";
 		if (query($query_password)->fetch_row()[0] != $password) {
 			// Unset variables
 			setcookie('user', '', -1, "/");
 			setcookie('password', '', -1, "/");
 			
-			die("<script>window.location.href = './index.php?passwordchanged=1'</script>");
+			die("<script>window.location.href = './?passwordchanged=1'</script>");
 		}
 	}
 ?>
@@ -79,13 +76,13 @@
 	<body>
 		<div id="outter-container">
 			<div id="inner-container">
-				<a href="./index.php" class="goback">Torna a la pàgina principal</a><br />
+				<a href="./" class="goback">Canvi d'usuari</a><br />
 				<h2>Hola <name id="user_name"><?=$user->nom()?></name>,</h2>
 
 				<div class="formulari_contrasenya">
 					<p>Sembla que no tens clau d'accés, la gent podrà entrar al teu compte...</p>
 					<form action="./php/change_password.php" method="POST">
-						<input type="hidden" value="<?=(int)$_POST['user']?>" name="userid">
+						<input type="hidden" value="<?=$user->id?>" name="userid">
 						<input type="password" placeholder="Nova clau d'accés..." name="password" /><br />
 						<input type="password" placeholder="Repeteix la clau d'accés" name="confirmation"/><br />
 						<input type="submit" value="Posar clau d'accés">
@@ -132,8 +129,11 @@
 						</tr>
 					</table>
 				</div>
-
-				<div style="clear: both;"></div>
+				
+				<div>
+					<p>Podeu posar aquesta pàgina com a icona apretant el botó de "Add to Home Screen" del vostre navegador.</p>
+					<a href="./ranking.php">Anar al rànquing</a>
+				</div>
 			</div>
 		</div>
 
@@ -146,6 +146,10 @@
 					$.notify("No tens clau d'accés", "info");
 					$(".formulari_contrasenya").show();
 				}
+				// Notify of messages
+				if (getUrlParameter("wrongconfirmation")) read_message("Les contrasenyes no coincideixen", "error");
+				if (getUrlParameter("errordb")) read_message("Hi ha hagut un problema a la base de dades, torna-ho a intentar", "error");
+				if (getUrlParameter("successpassword")) read_message("La teva clau d'accés s'ha guardat", "success");
 			});
 		</script>
 	</body>
