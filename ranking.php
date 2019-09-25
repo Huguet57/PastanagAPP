@@ -1,6 +1,5 @@
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 	<link rel="stylesheet" href="./css/ranking.css" />
 </head>
@@ -33,9 +32,9 @@
 			<div id="leftlinks"><a id="info" href="javascript:void(0);" onclick="js: toggleinfo();">+Info</a></div>
 			<div id="rightlinks"><a href="./main.php">Tornar a la pàgina principal</a></div>
 		</header>
-
+		
 		<p><img src="./bin/images/info.png" width="32px" /> La puntuació de cada jugador es calcula com a una suma ponderada depenent del caràcter de les seves víctimes: companys de <b>c</b>lasse (mateix curs, mateix grau), companys de <b>g</b>rau (mateix grau) i companys de <b>f</b>acultat (diferents grau). Amb puntuacions +100, +150 i +200; respectivament.</p>
-
+		
 		<div id="table-container">
 			<table id="ranking" cellspacing="0" cellpadding="0">
 				<tr id="header">
@@ -50,14 +49,14 @@
 				<?php
 					$id = 0;
 					$i = 1;
-
+					
 					while ($row = $results->fetch_object()) {
 						if ($i == 1) echo "<tr class='gold top3'>";
 						else if ($i == 2) echo "<tr class='silver top3'>";
 						else if ($i == 3) echo "<tr class='bronze top3'>";
 						else if ($row->id == $id) echo "<tr class='me'>";
 						else echo "<tr>";
-
+						
 						echo "<td>". ($i > 3 ? $i : '') ."</td>";
 						echo "<td class='name'><div>
 									<div class='username'>$row->nom</div>
@@ -69,7 +68,7 @@
 						echo "<td>$row->companys_grau</td>";
 						echo "<td>$row->companys_facu</td>";
 						echo "</tr>";
-
+						
 						$i = $i + 1;
 					}
 				?>
