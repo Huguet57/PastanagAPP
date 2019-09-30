@@ -1,6 +1,4 @@
 # PastanagAPP
-Aplicació web per jugar a la Pastanaga Assessina.
-
 Web App built in the challenging deadline of one week from scratch. Using JS, JQuery, PHP, MySQL, CSS and HTML.
 
 The plan for the platform was to host a game of the popular game "Pastnaga Assassina" ("Killer Carrot") which objective is to stab with a carrot the player's victim and then the victim's victim, etc. Without being seen by other witnesses.
