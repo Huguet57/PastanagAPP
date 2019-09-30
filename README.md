@@ -7,8 +7,8 @@ The app has been used as a method to know who to eliminate next, keep track of w
 
 As people were playing, the project kept evolving and offering new features. It has been a great improvement compared to what has been done these last few years, when the game faded to its ending because of the players' lack of memorization/interest and the inability of the organizers to keep track of how the game was doing.
 
-![Pàgina de login](https://ibb.co/Jvk5Rsf)
-![Pàgina principal](https://ibb.co/gwbQYzX)
-![Rànquing](https://ibb.co/tH6DJzt)
-![Firma](https://ibb.co/Df2jhhB)
-![Cementiri](https://ibb.co/jH5PQcm)
+![Pàgina de login](https://i.ibb.co/R7Sksxf/IMG-20191001-000926.jpg)
+![Pàgina principal](https://i.ibb.co/gSgzMR5/IMG-20191001-000944.jpg)
+![Rànquing](https://i.ibb.co/xGKwZJc/IMG-20191001-000959.jpg)
+![Firma](https://i.ibb.co/0ybzTT0/IMG-20191001-001242.jpg)
+![Cementiri](https://i.ibb.co/0nLrGKS/IMG-20191001-001555.jpg)
