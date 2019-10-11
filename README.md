@@ -10,5 +10,5 @@ As people were playing, the project kept evolving and offering new features. It 
 ![Pàgina de login](https://i.ibb.co/R7Sksxf/IMG-20191001-000926.jpg)
 ![Pàgina principal](https://i.ibb.co/gSgzMR5/IMG-20191001-000944.jpg)
 ![Rànquing](https://i.ibb.co/xGKwZJc/IMG-20191001-000959.jpg)
-![Firma](https://i.ibb.co/0ybzTT0/IMG-20191001-001242.jpg)
+![Firma](https://i.ibb.co/Yy0gDWv/IMG-20191011-080811.jpg)
 ![Cementiri](https://i.ibb.co/0nLrGKS/IMG-20191001-001555.jpg)
