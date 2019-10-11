@@ -1,7 +1,7 @@
 # PastanagAPP
 Web App built in the challenging deadline of one week from scratch. Using JS, JQuery, PHP, MySQL, CSS and HTML.
 
-The plan for the platform was to host a game of the popular game "Pastnaga Assassina" ("Killer Carrot") which objective is to stab with a carrot the player's victim and then the victim's victim, etc. Without being seen by other witnesses.
+The plan for the platform was to host a game of the popular game "Pastanaga Assassina" ("Killer Carrot") which objective is to stab with a carrot the player's victim and then the victim's victim, etc. Without being seen by other witnesses.
 
 The app has been used as a method to know who to eliminate next, keep track of who eliminated whom, get who a ranking of who was getting the most eliminations, see who has been eliminated...
 
