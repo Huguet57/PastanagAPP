@@ -7,6 +7,8 @@ The app has been used as a method to know who to eliminate next, keep track of w
 
 As people were playing, the project kept evolving and offering new features. It has been a great improvement compared to what has been done these last few years, times when the game faded to oblivion because of the players' lack of memorization/interest and the inability of the organizers to keep track of how the game was doing.
 
+Images below are an extract of the actual game played this fall at UPC's Maths and Statistics Faculty (FME)...
+
 ![Pàgina de login](https://i.ibb.co/R7Sksxf/IMG-20191001-000926.jpg)
 ![Pàgina principal](https://i.ibb.co/gSgzMR5/IMG-20191001-000944.jpg)
 ![Rànquing](https://i.ibb.co/xGKwZJc/IMG-20191001-000959.jpg)
