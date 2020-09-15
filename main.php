@@ -125,11 +125,56 @@
 				</div>
 				
 				<div id="message-board">
+                                        <h1>L'atacat</h1>
+                                        <div id="messages-sent">
+                                                <?php
+                                                        // Create connection
+                                                        $credentials = new Credentials();
+                                                        $conn = new mysqli($credentials->servername, $credentials->username, $credentials->password, $credentials->dbname);
+                                                        if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+                                                        $conn->set_charset("utf8");
+                                                        
+                                                        // Execute query and save result
+                                                        $query_msgs = "SELECT * FROM `missatges` WHERE (`sender_id` = ".$user->id." AND `receiver_id` = ".$user->quimata .
+                                                                ") OR (`sender_id` = ".$user->quimata." AND `receiver_id` = ".$user->id . ")";
+                                                        $result = $conn->query($query_msgs);
+                                                        
+                                                        while($res = $result->fetch_row()) {
+                                                                echo $res[1] . "->" . $res[2] . " (" . $res[3] . "): " . $res[4] . "<br />";
+                                                        }
+                                                ?>
+                                        </div>
 					<form action="./php/send_thread.php" method="POST">
 						<input type="text" name="msg-content" placeholder="Que es cagui de por" />
 						<input type="hidden" name="killer-id" value="<?=(int)$user->id?>">
 						<input type="hidden" name="victim-id" value="<?=(int)$user->quimata?>">
 						<input type="submit" value="Enviar amenaça" />
+					</form>
+                                        <h1>L'atacant</h1>
+                                        <div id="messages-sent">
+                                                <?php
+                                                        $query_quielmata = "SELECT id FROM pastanaga WHERE quimata = " . $user->id;
+                                                        $quielmata = $conn->query($query_quielmata)->fetch_row()[0];
+                                                        
+                                                        // Execute query and save result
+                                                        $query_msgs = "SELECT * FROM `missatges` WHERE (`sender_id` = ".$user->id." AND `receiver_id` = ".$quielmata .
+                                                                ") OR (`sender_id` = ".$quielmata." AND `receiver_id` = ".$user->id . ")";
+                                                        $result = $conn->query($query_msgs);
+                                                        
+                                                        while($res = $result->fetch_row()) {
+                                                                echo $res[1] . "->" . $res[2] . " (" . $res[3] . "): " . $res[4] . "<br />";
+                                                        }
+                                  
+                                                
+                                                        // Close the connection 
+                                                        $conn->close();
+                                                ?>
+                                        </div>
+					<form action="./php/send_thread.php" method="POST">
+						<input type="text" name="msg-content" placeholder="Demostra que no tens por" />
+						<input type="hidden" name="killer-id" value="<?=(int)$user->id?>">
+						<input type="hidden" name="victim-id" value="<?=(int)$quielmata?>">
+						<input type="submit" value="Respon amenaça" />
 					</form>
 				</div>
 				
