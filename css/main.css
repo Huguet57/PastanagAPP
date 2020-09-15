@@ -94,6 +94,9 @@ button#lose {
 	display: none;
 }
 
+.msg-content {
+        font-size: 12px;
+}
 
 .meta-data {
         font-size: 7px;
@@ -101,4 +104,8 @@ button#lose {
 
 .seen {
         padding-left: 5px; 
+}
+
+.from-me {
+        text-align: right;
 }
