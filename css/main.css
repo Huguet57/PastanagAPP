@@ -60,7 +60,7 @@ button#lose {
 }
 
 .black {
-	filter: brightness(0%);
+	background-color: black;
 }
 
 #victim_name {
