@@ -93,3 +93,12 @@ button#lose {
 	border-bottom: solid grey 1px;
 	display: none;
 }
+
+
+.meta-data {
+        font-size: 7px;
+}
+
+.seen {
+        padding-left: 5px; 
+}
