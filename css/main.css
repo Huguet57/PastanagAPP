@@ -50,7 +50,16 @@ button#lose {
 	margin-right: 16px;
 }
 
-img.black {
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-image: url(https://www.istockphoto.com/resources/images/PhotoFTLP/Signature-1205756464.jpg);
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+}
+
+.black {
 	filter: brightness(0%);
 }
 
