@@ -126,7 +126,9 @@
 				
 				<div id="message-board">
 					<form action="./php/send_thread.php">
-						<input type="text" placeholder="Que es cagui de por" />
+						<input type="text" name="msg-content" placeholder="Que es cagui de por" />
+						<input type="hidden" name="killer-id" value="<?=(int)$user->id?>">
+						<input type="hidden" name="victim-id" value="<?=(int)$user->quimata?>">
 						<input type="submit" value="Enviar amenaça" />
 					</form>
 				</div>
