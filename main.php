@@ -133,7 +133,7 @@
                                                         $conn = new mysqli($credentials->servername, $credentials->username, $credentials->password, $credentials->dbname);
                                                         if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
                                                         $conn->set_charset("utf8");
-                                                        
+                                                                                                                
                                                         // Execute query and save result
                                                         $query_msgs = "SELECT * FROM `missatges` WHERE (`sender_id` = ".$user->id." AND `receiver_id` = ".$user->quimata .
                                                                 ") OR (`sender_id` = ".$user->quimata." AND `receiver_id` = ".$user->id . ")";
@@ -141,9 +141,9 @@
                                                         
                                                         while($res = $result->fetch_row()) {
                                                                 if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou.' : '')."</span></div></div>";
+                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
                                                                 } else {
-                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
+                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou!' : '')."</span></div></div>";
                                                                 }
                                                         }
                                                 ?>
@@ -170,12 +170,12 @@
                                                         
                                                         while($res = $result->fetch_row()) {
                                                                 if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou!' : '')."</span></div></div>";
+                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
                                                                 } else {
-                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
+                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou!' : '')."</span></div></div>";
                                                                 }
                                                         }
-                                  			
+                                  
                                                         // Update 'seen' messages
                                                         $query_seen = "UPDATE missatges SET `seen` = 1 WHERE `receiver_id` = " . $user->id;
                                                         $conn->query($query_seen);
