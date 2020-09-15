@@ -141,9 +141,9 @@
                                                         
                                                         while($res = $result->fetch_row()) {
                                                                 if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
                                                                 } else {
-                                                                        echo "<div class='to-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
                                                                 }
                                                         }
                                                 ?>
@@ -167,9 +167,9 @@
                                                         
                                                         while($res = $result->fetch_row()) {
                                                                 if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
                                                                 } else {
-                                                                        echo "<div class='to-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
                                                                 }
                                                         }
                                   
