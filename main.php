@@ -140,7 +140,11 @@
                                                         $result = $conn->query($query_msgs);
                                                         
                                                         while($res = $result->fetch_row()) {
-                                                                echo $res[1] . "->" . $res[2] . " (" . $res[3] . "): " . $res[4] . "<br />";
+                                                                if ($res[1] == $user->id) {
+                                                                        echo "<div class='from-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                } else {
+                                                                        echo "<div class='to-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                }
                                                         }
                                                 ?>
                                         </div>
@@ -162,7 +166,11 @@
                                                         $result = $conn->query($query_msgs);
                                                         
                                                         while($res = $result->fetch_row()) {
-                                                                echo $res[1] . "->" . $res[2] . " (" . $res[3] . "): " . $res[4] . "<br />";
+                                                                if ($res[1] == $user->id) {
+                                                                        echo "<div class='from-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                } else {
+                                                                        echo "<div class='to-me'><span class='msg-content'>$res[4]</span><span class='timestamp'>$res[3]</span><span class='seen'>$res[5]</span></div>";
+                                                                }
                                                         }
                                   
                                                 
