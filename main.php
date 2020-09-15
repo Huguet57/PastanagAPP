@@ -124,78 +124,16 @@
 					</table>
 				</div>
 				
-				<div id="message-board">
-                                <div id="victim-messages">
-                                        <div class="messages-sent">
-                                                <?php
-                                                        // Create connection
-                                                        $credentials = new Credentials();
-                                                        $conn = new mysqli($credentials->servername, $credentials->username, $credentials->password, $credentials->dbname);
-                                                        if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
-                                                        $conn->set_charset("utf8");
-                                                                                                                
-                                                        // Execute query and save result
-                                                        $query_msgs = "SELECT * FROM `missatges` WHERE (`sender_id` = ".$user->id." AND `receiver_id` = ".$user->quimata .
-                                                                ") OR (`sender_id` = ".$user->quimata." AND `receiver_id` = ".$user->id . ")";
-                                                        $result = $conn->query($query_msgs);
-                                                        
-                                                        while($res = $result->fetch_row()) {
-                                                                if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
-                                                                } else {
-                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou!' : '')."</span></div></div>";
-                                                                }
-                                                        }
-                                                ?>
-                                        </div>
-					<form action="./php/send_thread.php" method="POST">
-						<input type="text" name="msg-content" placeholder="Que es cagui de por" />
-						<input type="hidden" name="killer-id" value="<?=(int)$user->id?>">
-						<input type="hidden" name="victim-id" value="<?=(int)$user->quimata?>">
-						<input type="submit" value="Enviar amenaça" />
-					</form>
-                                 </div>
-                                 <hr />
-                                 <h5>El teu assassí:</h5>
-                                 <div id="killer-messages">
-                                        <div class="messages-sent">
-                                                <?php
-                                                        $query_quielmata = "SELECT id FROM pastanaga WHERE quimata = " . $user->id;
-                                                        $quielmata = $conn->query($query_quielmata)->fetch_row()[0];
-                                                        
-                                                        // Execute query and save result
-                                                        $query_msgs = "SELECT * FROM `missatges` WHERE (`sender_id` = ".$user->id." AND `receiver_id` = ".$quielmata .
-                                                                ") OR (`sender_id` = ".$quielmata." AND `receiver_id` = ".$user->id . ")";
-                                                        $result = $conn->query($query_msgs);
-                                                        
-                                                        while($res = $result->fetch_row()) {
-                                                                if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
-                                                                } else {
-                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou!' : '')."</span></div></div>";
-                                                                }
-                                                        }
-                                  
-                                                        // Update 'seen' messages
-                                                        $query_seen = "UPDATE missatges SET `seen` = 1 WHERE `receiver_id` = " . $user->id;
-                                                        $conn->query($query_seen);
-                                                        
-                                                        // Close the connection 
-                                                        $conn->close();
-                                                ?>
-                                        </div>
-					<form action="./php/send_thread.php" method="POST">
-						<input type="text" name="msg-content" placeholder="Demostra que no tens por" />
-						<input type="hidden" name="killer-id" value="<?=(int)$user->id?>">
-						<input type="hidden" name="victim-id" value="<?=(int)$quielmata?>">
-						<input type="submit" value="Respon amenaça" />
-					</form>
-				</div>
-                                </div>
-				
+                                <?php
+                                        $query_seen_victim = "SELECT COUNT(*) FROM missatges WHERE `seen` = 0 AND (`receiver_id` = " . $user->id . " AND `sender_id` = " . $user->quimata . ")";
+                                        $query_seen_killer = "SELECT COUNT(*) FROM missatges WHERE `seen` = 0 AND (`receiver_id` = " . $user->id . " AND `sender_id` != " . $user->quimata . ")";
+                                ?>
+                                
 				<div>
 					<p>Podeu posar aquesta pàgina com a icona apretant el botó de "Add to Home Screen" del vostre navegador.</p>
-					<a href="./ranking.php">Anar al rànquing</a>
+					<a href="./ranking.php">Anar al rànquing</a><br />
+                                        <a href="./victim-chat.php">Xatejar amb la teva víctima (<?= query($query_seen_victim)->fetch_row()[0] ?>)</a><br />
+                                        <a href="./killer-chat.php">Xatejar amb el teu assassí (<?= query($query_seen_killer)->fetch_row()[0] ?>)</a>
 				</div>
 			</div>
 		</div>
