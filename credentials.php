@@ -5,6 +5,8 @@ class Credentials {
   public $username = "3580259_pastanaga";
   public $password = "CA-btEjC3,v{PV,%";
   public $dbname = "pastanaga";
+  public $usersdb = "pastanaga";
+  public $mortsdb = "pastanaga_morts";
 };
 
 ?>
