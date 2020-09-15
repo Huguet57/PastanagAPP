@@ -125,8 +125,8 @@
 				</div>
 				
 				<div id="message-board">
-                                        <h1>L'atacat</h1>
-                                        <div id="messages-sent">
+                                <div id="victim-messages">
+                                        <div class="messages-sent">
                                                 <?php
                                                         // Create connection
                                                         $credentials = new Credentials();
@@ -154,8 +154,11 @@
 						<input type="hidden" name="victim-id" value="<?=(int)$user->quimata?>">
 						<input type="submit" value="Enviar amenaça" />
 					</form>
-                                        <h1>L'atacant</h1>
-                                        <div id="messages-sent">
+                                 </div>
+                                 <hr />
+                                 <h5>El teu assassí:</h5>
+                                 <div id="killer-messages">
+                                        <div class="messages-sent">
                                                 <?php
                                                         $query_quielmata = "SELECT id FROM pastanaga WHERE quimata = " . $user->id;
                                                         $quielmata = $conn->query($query_quielmata)->fetch_row()[0];
@@ -185,6 +188,7 @@
 						<input type="submit" value="Respon amenaça" />
 					</form>
 				</div>
+                                </div>
 				
 				<div>
 					<p>Podeu posar aquesta pàgina com a icona apretant el botó de "Add to Home Screen" del vostre navegador.</p>
