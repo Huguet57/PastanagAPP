@@ -125,7 +125,7 @@
 				</div>
 				
 				<div id="message-board">
-					<form action="./php/send_thread.php">
+					<form action="./php/send_thread.php" method="POST">
 						<input type="text" name="msg-content" placeholder="Que es cagui de por" />
 						<input type="hidden" name="killer-id" value="<?=(int)$user->id?>">
 						<input type="hidden" name="victim-id" value="<?=(int)$user->quimata?>">
