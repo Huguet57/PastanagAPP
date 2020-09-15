@@ -141,9 +141,9 @@
                                                         
                                                         while($res = $result->fetch_row()) {
                                                                 if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
+                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou.' : '')."</span></div></div>";
                                                                 } else {
-                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
+                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
                                                                 }
                                                         }
                                                 ?>
@@ -170,13 +170,16 @@
                                                         
                                                         while($res = $result->fetch_row()) {
                                                                 if ($res[1] == $user->id) {
-                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
+                                                                        echo "<div class='from-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Nou!' : '')."</span></div></div>";
                                                                 } else {
-                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'New' : '')."</span></div></div>";
+                                                                        echo "<div class='to-me'><div class='msg-content'>$res[4]</div><div class='meta-data'><span class='timestamp'>$res[3]</span><span class='seen'>".($res[5] == 0 ? 'Enviat' : 'Vist')."</span></div></div>";
                                                                 }
                                                         }
-                                  
-                                                
+                                  			
+                                                        // Update 'seen' messages
+                                                        $query_seen = "UPDATE missatges SET `seen` = 1 WHERE `receiver_id` = " . $user->id;
+                                                        $conn->query($query_seen);
+                                                        
                                                         // Close the connection 
                                                         $conn->close();
                                                 ?>
