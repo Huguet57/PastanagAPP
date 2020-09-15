@@ -124,6 +124,13 @@
 					</table>
 				</div>
 				
+				<div id="message-board">
+					<form action="./php/send_thread.php">
+						<input type="text" placeholder="Que es cagui de por" />
+						<input type="submit" value="Enviar amenaça" />
+					</form>
+				</div>
+				
 				<div>
 					<p>Podeu posar aquesta pàgina com a icona apretant el botó de "Add to Home Screen" del vostre navegador.</p>
 					<a href="./ranking.php">Anar al rànquing</a>
