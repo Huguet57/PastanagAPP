@@ -8,7 +8,7 @@
   $killerid = $_POST["killer-id"];
   $msgcontent = $_POST["msg-content"];
   
-  $template = "INSERT INTO messages VALUES (NULL, $killerid, $victimid, NULL, '$msgcontent')";
+  $template = "INSERT INTO messages VALUES (NULL, $killerid, $victimid, CURRENT_TIMESTAMP, '$msgcontent')";
   if (!query($template)) die("An error ocurred." . $template);
   
   header("Location: http://pastanagapp2020.mygamesonline.org/main.php");
