@@ -96,6 +96,7 @@
 						<tr>
 							<td class="table_img">
 								<div id="victim_img">
+									<!--
 									<table cellspacing="0" cellpadding="0">
 										<tr>
 											<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
@@ -113,6 +114,18 @@
 											<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
 										</tr>
 									</table>
+									-->
+									<div class="grid-container">
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>  
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>  
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+									</div>
 								</div>
 							</td>
 							<td class="table_text">
