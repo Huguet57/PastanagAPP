@@ -25,6 +25,7 @@ function send_request(user, msg) {
 		'error': function(xhr, status, error) { 
 			$.notify('Error! Torna-ho a intentar o contacta amb l\'Andreu: +34681236024');
 			console.log(error);
+			alert(error);
 		}
 	});
 }
@@ -56,7 +57,7 @@ function update_info(user) {
 			
 			// Check if user is dead
 			if (!user.mort && !info.mort) user.mort = check_requests(info, user);
-			else window.location.href = "./dead.php";
+			// else window.location.href = "./dead.php";
 			
 			// Check if there has been a change of victim					
 			if (info.quimata != user.quimata) {

@@ -11,5 +11,7 @@
   $template = "INSERT INTO `missatges` (`id`, `sender_id`, `receiver_id`, `timestamp`, `content`) VALUES (NULL, $killerid, $victimid, CURRENT_TIMESTAMP, '$msgcontent')";
   if (!query($template)) die("An error ocurred." . $template);
   
-  header("Location: http://pastanagapp2020.mygamesonline.org/main.php");
+  // header("Location: ../main.php");
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
+  exit;
 ?>

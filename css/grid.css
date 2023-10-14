@@ -1,0 +1,34 @@
+.grid-container {
+    display: flex;
+    width: 101px;           /* 100px + 1px */
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    width: 33px;            /* 100px/3 */
+    height: 33px;           /* 100px/3 */
+    background-image: url(https://via.placeholder.com/100);
+    background-size: 100px auto;
+}
+
+.black {
+    background-image: none;
+    background-color: black;
+}
+
+.flexbreak {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.h0v0 { background-position: 0px 0px; }
+.h1v0 { background-position: 66px 0px; }
+.h2v0 { background-position: 33px 0px; }
+
+.h0v1 { background-position: 0px 66px; }
+.h1v1 { background-position: 66px 66px; }
+.h2v1 { background-position: 33px 66px; }
+
+.h0v2 { background-position: 0px 33px; }
+.h1v2 { background-position: 66px 33px; }
+.h2v2 { background-position: 33px 33px; }

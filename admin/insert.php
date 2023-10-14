@@ -7,8 +7,8 @@
 
 	// Read from CSV
 	$inscrits = array_map('str_getcsv', file($csvname));
-	array_shift($inscrits); // remove header
-	shuffle($inscrits); // shuffle randomly
+	// array_shift($inscrits); // remove header
+	// shuffle($inscrits); // shuffle randomly
 	
 	$start = 1;
 	$i = $start;

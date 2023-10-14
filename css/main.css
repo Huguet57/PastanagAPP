@@ -50,6 +50,7 @@ button#lose {
 	margin-right: 16px;
 }
 
+/*
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -62,6 +63,7 @@ button#lose {
 .black {
 	background-color: black;
 }
+*/
 
 #victim_name {
 	font-weight: bold;

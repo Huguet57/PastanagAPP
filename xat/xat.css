@@ -1,0 +1,35 @@
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 79%;
+    height: 30px;
+}
+
+input[type="submit"] {
+    width: 19%;
+    height: 30px;
+    background-color: white;
+    border: solid 3px orange;
+    border-radius: 10px;
+}
+
+.messages-sent {
+    min-height: 400px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+a {
+    font-size: 14px;
+    text-align: right;
+}
+
+.from-me {
+    margin-right: 10px;
+}
+
+#inner-container {
+    padding-bottom: 10px !important;
+}

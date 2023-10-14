@@ -16,19 +16,19 @@
 			<div id="victim_img">
 				<table cellspacing="0" cellpadding="0">
 					<tr>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_02.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h0v0" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_02.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h1v0" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_01_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h2v0" /></td>
 					</tr>
 					<tr>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_02_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_02_02.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_02_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_02_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h0v1" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_02_02.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h1v1" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_02_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h2v1" /></td>
 					</tr>
 					<tr>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_02.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
-						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?>" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_01.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h0v2" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_02.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h1v2" /></td>
+						<td><img src="./bin/images/imgs/<?=$victim->id?>/slice_03_03.png" width="33" class="<?=(int)$bits[$bit_counter++] ? 'black' : ''?> h2v2" /></td>
 					</tr>
 				</table>
 			</div>

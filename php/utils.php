@@ -5,12 +5,17 @@
 		if ($curs == 2) return "2n";
 		if ($curs == 3) return "3r";
 		if ($curs == 4) return "4t";
+		if ($curs == 5) return "5è";
+		if ($curs == 6) return "6è";
+		if ($curs == 7) return "7è";
+		if ($curs == 8) return "8è";	
 	}
 	
 	function nomgrau($grau) {
 		if ($grau == 0) return "MAT";
 		if ($grau == 1) return "EST";
-		if ($grau == 2) return "MAMME";
+		if ($grau == 2) return "MÀST";
+		if ($grau == 3) return "DAD";
 	}
 
 	class User{
@@ -39,7 +44,7 @@
 		$credentials = new Credentials();
 		$conn = new mysqli($credentials->servername, $credentials->username, $credentials->password, $credentials->dbname);
 		if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
-		$conn->set_charset("utf8");
+		$conn->set_charset("utf8mb4");
 		
 		// Execute query and save result
 		$result = $conn->query($query);

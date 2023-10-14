@@ -15,7 +15,7 @@
 	$mortsdb = $credentials->mortsdb;
 	
 	// Mateix grau i curs => 100, Mateix grau diferent curs => 150, Diferent grau => 200
-	$getranking = "SELECT $mortsdb.assassi AS id, $usersdb.nom, $usersdb.grau, $usersdb.curs, count($mortsdb.assassi) AS kills,
+	$getranking = "SELECT $mortsdb.assassi AS id, $usersdb.nom, $usersdb.grau, $usersdb.curs, $usersdb.mort, count($mortsdb.assassi) AS kills,
 					sum($mortsdb.grau = $usersdb.grau AND $mortsdb.curs = $usersdb.curs) AS companys_classe,
 					sum($mortsdb.grau = $usersdb.grau AND $mortsdb.curs != $usersdb.curs) AS companys_grau,
 					sum($mortsdb.grau != $usersdb.grau) AS companys_facu,
@@ -60,8 +60,9 @@
 						echo "<td>". ($i > 3 ? $i : '') ."</td>";
 						echo "<td class='name'><div>
 									<div class='username'>$row->nom</div>
-									<div class='userinfo'>".nomcurs($row->curs)." - ".nomgrau($row->grau)."</div>
-								</div></td>";
+									<div class='userinfo'>".nomcurs($row->curs)." - ".nomgrau($row->grau);
+						if ($row->mort == 1) echo " - <a href='./cementery.php#$row->id'>&#10013;</a>";
+						echo "</div></div></td>";
 						echo "<td>$row->kills</td>";
 						echo "<td><b>$row->score</b></td>";
 						echo "<td>$row->companys_classe</td>";

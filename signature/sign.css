@@ -1,0 +1,91 @@
+body {
+	background-image: url('../bin/images/background.jpg');
+	background-size: cover;
+}
+
+header {
+	margin-top: 25px;
+	margin-bottom: 75px;
+	font-family: 'Open Sans';
+	display: block;
+}
+
+header a {
+	font-size: 16px;
+	text-decoration: none;
+}
+
+header #leftlinks {
+	padding-left: 20px;
+	float: left;
+}
+
+header #rightlinks {
+	margin-right: 20px;
+	float: right;
+}
+
+div#outter-container {
+	width: 95%;
+	margin: 32px auto;
+}
+
+#inner-container {
+	background-color: white;
+	padding: 25px;
+}
+
+p {
+	font-size: 16px;
+	text-align: justify;
+	width: 95%;
+	margin: auto;
+	margin-bottom: 25px;
+}
+
+#table-container {
+	overflow: scroll;
+}
+
+div#table-container {
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#signArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flexbreak {
+    flex-basis: 100%;
+    height: 0;
+}
+
+#signArea .sigWrapper {
+    border: solid 4px black;
+    border-radius: 10px;
+}
+
+.button-container {
+    margin: 20px;
+}
+
+.button-container button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#oldsignatureArea {
+    text-align: center;
+}
+
+#oldsignatureArea .imgcontainer {
+    border: solid 4px black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #ccc;
+}

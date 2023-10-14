@@ -1,12 +1,12 @@
 <?php
 
 class Credentials {
-  public $servername = "fdb30.awardspace.net";
-  public $username = "3580259_pastanaga";
-  public $password = "CA-btEjC3,v{PV,%";
-  public $dbname = "pastanaga";
-  public $usersdb = "pastanaga";
-  public $mortsdb = "pastanaga_morts";
+  public $servername = "apps.dafme.upc.edu";
+  public $username = "appsdafm_admin";
+  public $password = "becariFME2019";
+  public $dbname = "appsdafm_pastanaga";
+  public $usersdb = "PA2021";
+  public $mortsdb = "PA2021_morts";
 };
 
 ?>

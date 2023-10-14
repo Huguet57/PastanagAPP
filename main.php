@@ -43,6 +43,7 @@
 
 		<link rel="stylesheet" href="./css/basic.css" />
 		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="./css/grid.css" />
 
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
@@ -97,15 +98,15 @@
 							<td class="table_img">
 								<div id="victim_img">
 									<div class="grid-container">
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>  
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>  
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
-										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?>"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h0v0"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h1v0"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h2v0"></div>  
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h0v1"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h1v1"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h2v1"></div>  
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h0v2"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h1v2"></div>
+										  <div class="grid-item <?=(int)$bits[$bit_counter++] ? 'black' : ''?> h2v2"></div>
 									</div>
 								</div>
 							</td>
@@ -132,8 +133,10 @@
 				<div>
 					<p>Podeu posar aquesta pàgina com a icona apretant el botó de "Add to Home Screen" del vostre navegador.</p>
 					<a href="./ranking.php">Anar al rànquing</a><br />
-                                        <a href="./victim-chat.php">Xatejar amb la teva víctima (<?= query($query_seen_victim)->fetch_row()[0] ?>)</a><br />
-                                        <a href="./killer-chat.php">Xatejar amb el teu assassí (<?= query($query_seen_killer)->fetch_row()[0] ?>)</a>
+					<a href="./cementery.php">Anar al cementiri</a><br />
+					<a href="./signature/sign.php">Dibuixa la teva firma <? if (!file_exists("./bin/images/signatures/" . md5($user->id) . ".png")) echo "(no en tens!)"; ?></a><br />
+                    <a href="./xat/victim-chat.php">Xatejar amb la teva víctima (<?= query($query_seen_victim)->fetch_row()[0] ?>)</a><br />
+                    <a href="./xat/killer-chat.php">Xatejar amb el teu assassí (<?= query($query_seen_killer)->fetch_row()[0] ?>)</a>
 				</div>
 			</div>
 		</div>
@@ -141,7 +144,13 @@
 		<script>
 			$(document).ready(function() {
 				// Set interval of checking
-				let checking = setInterval(function() { update_info(user); }, 1500);
+				let checking = setInterval(function() { update_info(user); console.log("Updated info of user..."); }, 1500);
+				[...document.querySelectorAll('.grid-item')].forEach(function(cell) {
+				    if (!cell.classList.contains('black')) {
+				        cell.style.backgroundImage = 'url(./bin/images/users/' + user['quimata'] + '.jpg)';
+				    }
+                });
+                
 				// Set to hidden or not the password prompt
 				if (<?=$user->md5password=="" ? 1 : 0?>) {
 					$.notify("No tens clau d'accés", "info");
@@ -151,6 +160,8 @@
 				if (getUrlParameter("wrongconfirmation")) read_message("Les contrasenyes no coincideixen", "error");
 				if (getUrlParameter("errordb")) read_message("Hi ha hagut un problema a la base de dades, torna-ho a intentar", "error");
 				if (getUrlParameter("successpassword")) read_message("La teva clau d'accés s'ha guardat", "success");
+				if (parseInt(<?= query($query_seen_victim)->fetch_row()[0] ?>) > 0) read_message("Tens nous missatges de la teva víctima!", "info");
+				if (parseInt(<?= query($query_seen_killer)->fetch_row()[0] ?>) > 0) read_message("Tens nous missatges del teu assassí!", "info");
 			});
 		</script>
 	</body>

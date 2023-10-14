@@ -1,0 +1,117 @@
+body {
+	background-image: url('../bin/images/background.jpg');
+	background-size: cover;
+}
+
+header {
+	margin-top: 25px;
+	margin-bottom: 100px;
+	font-family: 'Open Sans';
+	display: block;
+}
+
+header a {
+	font-size: 40px;
+	text-decoration: none;
+}
+
+header #leftlinks {
+	padding-left: 20px;
+	float: left;
+}
+
+header #rightlinks {
+	margin-right: 20px;
+	float: right;
+}
+
+div#outter-container {
+	width: 95%;
+	margin: 32px auto;
+}
+
+#inner-container {
+	background-color: white;
+	padding: 25px;
+}
+
+p {
+	font-size: 16px;
+	text-align: justify;
+	display: none;
+	width: 95%;
+	margin: auto;
+	margin-bottom: 25px;
+}
+
+#table-container {
+	overflow: scroll;
+}
+
+div#table-container {
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+table#cementery {
+	font-size: 48px;
+	text-align: center;
+	font-family: 'Open Sans';
+	margin: 25px auto;
+	width: 95%;
+}
+
+table#cementery td {
+	padding: 15px;
+	height: 50px;
+	
+	max-width: 400px;
+}
+
+.tombstone {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.tombstone .photo {
+    text-align: center;
+    margin-right: 3vw;
+}
+
+.tombstone .firma {
+    text-align: center;
+}
+
+.timestamp {
+    font-size: 3vw;
+    width: 100%;
+}
+
+td div.username {
+	font-size: 3.5vw;
+}
+
+td div.userinfo {
+	font-size: 3vw;
+	color: rgb(100,100,100);
+}
+
+.photo img {
+    width: 15vw;
+}
+
+.firma img {
+    width: 25vw;
+}
+
+td.name {
+	text-align: left;
+}
+
+tr#header th {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

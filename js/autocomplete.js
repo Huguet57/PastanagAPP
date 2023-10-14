@@ -2,13 +2,18 @@ function nomcurs(curs) {
 	if (curs == 1) return "1er";
 	if (curs == 2) return "2on";
 	if (curs == 3) return "3er";
-	if (curs == 4) return "4rt";	
+	if (curs == 4) return "4rt";
+	if (curs == 5) return "5è";
+	if (curs == 6) return "6è";
+	if (curs == 7) return "7è";
+	if (curs == 8) return "8è";
 }
 
 function nomgrau(grau) {
 	if (grau == 0) return "MAT";
 	if (grau == 1) return "EST";
-	if (grau == 2) return "MAMME";
+	if (grau == 2) return "MÀST";
+	if (grau == 3) return "DAD";
 }
 
 function autocomplete(inp, obj, act) {

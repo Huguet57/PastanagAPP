@@ -28,7 +28,7 @@
 			<div id="inner-container">
 				<header>
 					<h2>Pastanaga Assassina</h2>
-					<h3>Facultat de Matemàtiques i Estadística - Tardor 2019</h3>
+					<h3>Facultat de Matemàtiques i Estadística - Tardor 2023</h3>
 				</header>
 				<form action="./php/login.php" method="POST">
 					<input type="hidden" name="user" id="user">
@@ -61,7 +61,8 @@
 				</form>
 				
 				<p>La primera persona que entri al teu compte tindrà l'oportunitat de canviar la contrasenya.</p>
-				<a href="./ranking.php">Anar al rànquing</a>
+				<a href="./ranking.php">Anar al rànquing</a><br />
+				<a href="./cementery.php">Anar al cementiri</a>
 			</div>
 		</div>
 
